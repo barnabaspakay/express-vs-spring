@@ -26,6 +26,7 @@ public class Configuration {
 
     @Bean
     public NoteDAO noteDAO(DatabaseConnection databaseConnection) {
+        // Swap demo: return new NoteDaoMemory(); (plus its import). The service and controller stay unchanged.
         return new NoteDaoJdbc(databaseConnection);
     }
 }
