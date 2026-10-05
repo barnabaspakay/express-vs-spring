@@ -1,0 +1,53 @@
+### Express runs on 3000, Spring on 8080. Change this line to switch.
+@host = http://localhost:3000
+
+### Create a note
+POST {{host}}/notes
+Content-Type: application/json
+
+{"text": "Buy milk"}
+
+### Get all notes
+GET {{host}}/notes
+
+### Get one note
+GET {{host}}/notes/1
+
+### Delete a note
+DELETE {{host}}/notes/1
+
+
+### ===== Break-it lab =====
+
+### 1. POST without Content-Type
+POST {{host}}/notes
+
+{"text": "no header"}
+
+### 2. POST with broken JSON
+POST {{host}}/notes
+Content-Type: application/json
+
+{text: }
+
+### 3. Id that is not a number
+GET {{host}}/notes/abc
+
+### 4. Method that does not exist yet
+PUT {{host}}/notes/1
+Content-Type: application/json
+
+{"text": "changed"}
+
+### 5. Remove express.json() in app.js / @RequestBody in NoteController,
+###    restart, then run "Create a note" again.
+
+
+### ===== Step 2 only (database) =====
+
+### 6. Note without text: the database rejects it (text is NOT NULL)
+###    Afterwards, try "Get all notes". Is the server still running?
+POST {{host}}/notes
+Content-Type: application/json
+
+{}
