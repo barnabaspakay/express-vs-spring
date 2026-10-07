@@ -1,14 +1,17 @@
 # Express vs Spring: Notes API
 
-The same tiny Notes API written twice, in two steps. Run both servers and
+The same tiny Notes API written twice, in two steps, plus a third step
+that adds server-rendered pages to the Spring version. Run both servers and
 compare them.
 
 | Step | Folder | Data lives in |
 |---|---|---|
 | 1 | `1-in-memory/` | a list in memory (gone on restart) |
 | 2 | `2-database/` | PostgreSQL, through a DAO layer |
+| 3 | `3-thymeleaf/` | memory by default, or PostgreSQL. Spring only, adds HTML pages: see [`3-thymeleaf/README.md`](3-thymeleaf/README.md) |
 
-Each step has an `express-notes/` and a `spring-notes/` folder.
+Steps 1 and 2 each have an `express-notes/` and a `spring-notes/` folder.
+Step 3 has only `spring-notes/`.
 
 | | Express | Spring Boot |
 |---|---|---|

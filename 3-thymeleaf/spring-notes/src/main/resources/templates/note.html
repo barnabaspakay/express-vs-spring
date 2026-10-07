@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="'Note #' + ${note.id}">Note</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+
+<h1 th:text="${note.text}">Example note</h1>
+<p>Created: <span th:text="${#temporals.format(note.created, 'yyyy-MM-dd HH:mm')}">2026-01-01 12:00</span></p>
+
+<form th:action="@{/notes/{id}/delete(id=${note.id})}" method="post">
+    <button type="submit">Delete</button>
+</form>
+</body>
+</html>
